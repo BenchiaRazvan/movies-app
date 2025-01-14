@@ -16,7 +16,7 @@ export const SkeletonLoader = () => {
       <S.SkeletonMoviesRow key={index}>
         {Array.from({ length: 4 }).map((_, index) => (
           <div key={index}>
-            <Skeleton width={400} height={180} />
+            <Skeleton width={450} height={180} />
             <Skeleton style={skeletonMarginStyle} />
             <Skeleton style={skeletonMarginStyle} />
           </div>

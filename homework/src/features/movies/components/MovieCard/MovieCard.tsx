@@ -8,11 +8,12 @@ interface MovieCardProps {
 export const MovieCard = ({ movie }: MovieCardProps) => {
 
   return (
-    <Card sx={{ width: 345 }}>
+    <Card sx={{ width: 345 }} data-testid="movie-card-container">
       <CardMedia
         sx={{ height: 150 }}
         image={movie.Poster}
         title={movie.Title}
+        data-testid="movie-card-media"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

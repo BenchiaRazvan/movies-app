@@ -17,7 +17,7 @@ export const DecadeMovieList = ({ decade, movies }: DecadeMovieListProps) => {
 
   return (
     <S.DecadeContainer>
-      <h2>{decade}`s</h2>
+      <Typography variant="h5" data-testid="decade-movie">{decade}`s</Typography>
       <S.MoviesListContainer>
         {movies.slice(0, moviesDisplayedCount).map((movie) => (
           <MovieCard movie={movie} key={movie.imdbID} />
@@ -28,6 +28,7 @@ export const DecadeMovieList = ({ decade, movies }: DecadeMovieListProps) => {
           variant="contained"
           sx={{ textAlign: "center" }}
           onClick={() => setMoviesDisplayedCount((prevCount) => prevCount + 3)}
+          data-testid="load-more-movies-btn"
         >
           {LOAD_MORE_LABEL}
         </Button>
