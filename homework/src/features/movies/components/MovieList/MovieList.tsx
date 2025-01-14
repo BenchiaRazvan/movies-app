@@ -4,6 +4,7 @@ import { NO_MOVIES_FOUND_LABEL } from "../../../../shared/constants/textConstant
 import { useDebounce } from "../../../../shared/hooks/useDebounce";
 import { DEBOUNCE_WAITING_TIME } from "../../../../shared/constants/numberConstants";
 import { groupMoviesByDecade } from "../../utils/groupMoviesByDecade";
+import { DecadeMovieList } from "../DecadeMovieList/DecadeMovieList";
 
 interface MovieListProps {
   query: string;
@@ -19,5 +20,17 @@ export const MovieList = ({ query }: MovieListProps) => {
 
   const moviesByDecade = groupMoviesByDecade(movies);
 
-  return <Typography>Movie list: </Typography>;
+  return (
+    <>
+      {movies.length ? (
+        Array.from(moviesByDecade.entries()).map(([decade, movies]) => {
+          return (
+            <DecadeMovieList key={decade} decade={decade} movies={movies} />
+          );
+        })
+      ) : (
+        <Typography>Use the search bar to view the list of movies.</Typography>
+      )}
+    </>
+  );
 };

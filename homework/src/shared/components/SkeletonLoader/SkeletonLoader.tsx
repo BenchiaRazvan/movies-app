@@ -14,7 +14,7 @@ export const SkeletonLoader = () => {
     <S.SkeletonDecadeGroup key={`sk${index}`}>
       <Skeleton width={150} height={40}/>
       <S.SkeletonMoviesRow key={index}>
-        {Array.from({ length: 5 }).map((_, index) => (
+        {Array.from({ length: 4 }).map((_, index) => (
           <div key={index}>
             <Skeleton width={400} height={180} />
             <Skeleton style={skeletonMarginStyle} />

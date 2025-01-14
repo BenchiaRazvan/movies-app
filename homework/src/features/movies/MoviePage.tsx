@@ -6,12 +6,13 @@ import { MovieList } from "./components/MovieList/MovieList";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "../../shared/components/ErrorFallback/ErrorFallback";
 import { SkeletonLoader } from "../../shared/components/SkeletonLoader/SkeletonLoader";
+import { QUERY_LABEL } from "../../shared/constants/textConstants";
 
 export const MoviePage = () => {
   const [query, setQuery] = useState<string>("");
 
   return (
-    <>
+    <S.MovieContainer>
       <S.MovieHeader>
         <Typography variant="h4">List of movies</Typography>
         <Box>
@@ -20,7 +21,7 @@ export const MoviePage = () => {
             onChange={(value) => setQuery(value.trim())}
             placeholder="Search by name..."
           />
-          <Typography>Query: {query}</Typography>
+          <Typography>{QUERY_LABEL + query}</Typography>
         </Box>
       </S.MovieHeader>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
@@ -28,6 +29,6 @@ export const MoviePage = () => {
           <MovieList query={query} />
         </Suspense>
       </ErrorBoundary>
-    </>
+    </S.MovieContainer>
   );
 };

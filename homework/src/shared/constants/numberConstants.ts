@@ -1,2 +1,3 @@
 export const DEBOUNCE_WAITING_TIME = 300;
 export const MAXIMUM_NUMBER_OF_DECADES = 4;
+export const VISIBLE_MOVIES_COUNT = 3;
