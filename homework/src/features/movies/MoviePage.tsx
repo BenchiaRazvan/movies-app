@@ -5,6 +5,7 @@ import { Suspense, useState } from "react";
 import { MovieList } from "./components/MovieList/MovieList";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "../../shared/components/ErrorFallback/ErrorFallback";
+import { SkeletonLoader } from "../../shared/components/SkeletonLoader/SkeletonLoader";
 
 export const MoviePage = () => {
   const [query, setQuery] = useState<string>("");
@@ -23,7 +24,7 @@ export const MoviePage = () => {
         </Box>
       </S.MovieHeader>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Suspense fallback={<Typography>Loading...</Typography>}>
+        <Suspense fallback={<SkeletonLoader />}>
           <MovieList query={query} />
         </Suspense>
       </ErrorBoundary>
