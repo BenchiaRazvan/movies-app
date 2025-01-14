@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import * as S from "./moviePage.styles";
 import { SearchBar } from "./components/SearchBar/SearchBar";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { MovieList } from "./components/MovieList/MovieList";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorFallback } from "../../shared/components/ErrorFallback/ErrorFallback";
 
 export const MoviePage = () => {
   const [query, setQuery] = useState<string>("");
@@ -20,7 +22,11 @@ export const MoviePage = () => {
           <Typography>Query: {query}</Typography>
         </Box>
       </S.MovieHeader>
-      <MovieList query={query} />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Suspense fallback={<Typography>Loading...</Typography>}>
+          <MovieList query={query} />
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 };
