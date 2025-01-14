@@ -1,10 +1,7 @@
+import { MoviePage } from "./features/movies/MoviePage";
 
 function App() {
-  return (
-    <>
-      <p>Query</p>
-    </>
-  );
+  return <MoviePage />;
 }
 
 export default App;
