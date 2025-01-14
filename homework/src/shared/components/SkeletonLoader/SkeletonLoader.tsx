@@ -1,6 +1,6 @@
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import * as S from "./SkeletonLoader.styles";
+import * as S from "./skeletonLoader.styles";
 
 export const SkeletonLoader = () => {
     
